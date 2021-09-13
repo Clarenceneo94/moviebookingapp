@@ -1,0 +1,78 @@
+.center {
+    text-align: center;
+    /* display: flex; */
+    justify-content: center;
+}
+
+.seats {
+    text-align: center;
+    border-radius: 8px;
+    background: #22d62b;
+    padding: 8px;
+    width: 30px;
+    height: 35px;
+    justify-content: center;
+    margin: 1em;
+}
+
+.movieDeet {
+    background: currentColor;
+    border-radius: 5px;
+    background-color: antiquewhite;
+}
+
+.selectedseats {
+    text-align: center;
+    border-radius: 8px;
+    background: #22d62b;
+    padding: 8px;
+    width: 30px;
+    height: 35px;
+    justify-content: center;
+    /* display: inline-block; */
+    display: inline-flex;
+    margin: 1em;
+}
+
+.flex-item {
+    overflow: hidden;
+}
+
+.seatsrows {
+    text-align: center;
+    justify-content: center;
+}
+
+.seatsselectionbox {
+    background: beige;
+    border-radius: 5px;
+    padding: 1.5em;
+    text-align: center;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+.disableCss {
+    pointer-events: none;
+    opacity: 2.0;
+}
+
+.seatChart {
+    background: currentColor;
+    border-radius: 5px;
+    padding: 1.5em;
+    text-align: center;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+.my-disable {
+    pointer-events: none;
+}
+
+.fixed {
+    overflow: hidden;
+    float: left;
+}

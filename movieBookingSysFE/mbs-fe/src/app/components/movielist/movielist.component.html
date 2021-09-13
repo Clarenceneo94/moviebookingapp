@@ -1,0 +1,73 @@
+<div class="list row">
+    <div class="col-md-8">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search by title" [(ngModel)]="movieName" />
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="searchMovieByTitle()">
+            Search
+          </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h4>Movie List</h4>
+        <table class="table table-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <td>Movie Id</td>
+                    <td>Movie Name</td>
+                    <td>Movie Desc</td>
+                    <td>Movie Id</td>
+                </tr>
+            </thead>
+            <tr *ngFor="let movie of movies; let i = index" [class.active]="i == currentIndex" (click)="setActiveMovie(movie, i)">
+                <td>{{movie.movieId}}</td>
+                <td>{{movie.movieName}}</td>
+                <td>{{movie.movieDesc}}</td>
+                <td>{{movie.movieShowTime}}</td>
+                <td><button class="badge badge-warning" routerLink="/movies/updatemovie/{{ movie.movieId }}">EDIT</button></td>
+                <td>
+                    <button class="badge badge-danger" id="deleteMovie" (click)="deleteMovie(movie.movieId)">DELETE</button></td>
+            </tr>
+        </table>
+
+    </div>
+
+</div>
+
+
+
+
+<div>
+    OR ADD a movie
+    <br><br>
+</div>
+
+
+<div>
+    <div class="submit-form">
+        <div *ngIf="!submitted">
+            <div class="form-group">
+                <label for="title">Movie Name</label>
+                <input type="text" class="form-control" id="movieName" required [(ngModel)]="movie.movieName" name="movieName" />
+            </div>
+
+            <div class="form-group">
+                <label for="description">Movie Desc</label>
+                <input class="form-control" id="movieDesc" required [(ngModel)]="movie.movieDesc" name="movieDesc" />
+            </div>
+
+            <div class="form-group">
+                <label for="description">Movie ShowTime</label>
+                <input class="form-control" id="movieShowTimeieDesc" required [(ngModel)]="movie.movieShowTime" name="movieShowTime" />
+            </div>
+
+            <button (click)="saveMovie()" class="btn btn-success">Submit</button>
+        </div>
+
+        <div *ngIf="submitted">
+            <h4>Movie added successfully!</h4>
+            <button class="btn btn-success" (click)="insertMovie()">Back</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="center">
+    <p>Hello, User</p>
+
+
+    <div id="" class="movieDeet" style="overflow: hidden;">
+        <!-- <h1>{{ movie.movieId }} </h1> -->
+        <h1>{{ movie.movieName }} </h1>
+        <h2>{{ movie.movieDesc }} </h2>
+        <h6>{{ movie.movieShowTime }} </h6>
+    </div>
+    <p> </p>
+    <p>Seats:</p>
+
+    <!-- //(click)="setActiveSeat(m, i)" -->
+
+    <div id="seatChart" class="seatChart" style="overflow: hidden;">
+        <div class="fixed" *ngFor=" let m of seatData; let i=index;" [class.active]="i==currentIndex" (click)="setActiveSeat(m, i)" [ngStyle]="{'pointer-events': seatData[i + 0].Booking == null ? 'auto' : 'none'}">
+            <!-- <div *ngIf="i % 5==0 " class="row seatsrows">
+                <div class="seats" *ngIf="i + 0 < seatData.length " [ngStyle]="{'background':seatData[i + 0].Booking == null ? 'green' : 'red' }">{{ seatData[i + 0].Seat.seatId }}</div>
+                <div class="seats" *ngIf="i + 1 < seatData.length " [ngStyle]="{'background':seatData[i + 1].Booking == null ? 'green' : 'red' }">{{ seatData[i + 1].Seat.seatId }}</div>
+                <div class="seats" *ngIf="i + 2 < seatData.length " [ngStyle]="{'background':seatData[i + 2].Booking == null ? 'green' : 'red' }">{{ seatData[i + 2].Seat.seatId }}</div>
+                <div class="seats" *ngIf="i + 3 < seatData.length " [ngStyle]="{'background':seatData[i + 3].Booking == null ? 'green' : 'red' }">{{ seatData[i + 3].Seat.seatId }}</div>
+                <div class="seats" *ngIf="i + 4 < seatData.length " [ngStyle]="{'background':seatData[i + 4].Booking == null ? 'green' : 'red' }">{{ seatData[i + 4].Seat.seatId }}</div>
+            </div> -->
+
+
+            <div class="seats" [ngStyle]="{'background':seatData[i + 0].Booking == null ? 'green' : 'red'
+                                           }">
+
+                {{ seatData[i].Seat.seatId }}</div>
+
+
+        </div>
+    </div>
+
+
+    <p> </p>
+    <p>Selected Seats:</p>
+    <!-- <p> -->
+
+    <form #seatSelection="ngForm" (ngSubmit)="onClickSubmit()">
+
+        <div id="seatChart" class="seatsselectionbox " style="overflow: hidden;">
+
+            <div class="fixed" *ngFor=" let m of seatArray; let i=index;" (click)="setDisableSeat(m, i)">
+
+
+                <a class="selectedseats flex-item">{{ m.Seat.seatId }}</a>
+
+
+            </div>
+
+
+
+        </div>
+
+        <input class="btn btn-success" style="width: 100%;" type="submit" value="Book Seat">
+
+    </form>
+
+    <!-- <form #seatSelection="ngForm" (ngSubmit)="onClickSubmit()">
+
+        <div id="seatChart" class="seatsselectionbox " style="overflow: hidden;">
+
+            <div class="fixed" *ngFor=" let m of seatArray; let i=index;" (click)="setDisableSeat(m, i)">
+
+
+                <a class="selectedseats flex-item">{{ m.Seat.seatId }}</a>
+
+
+            </div>
+
+
+
+        </div>
+
+        <input class="btn btn-success" style="width: 100%;" type="submit" value="Book Seat">
+
+    </form> -->
+
+
+</div>
